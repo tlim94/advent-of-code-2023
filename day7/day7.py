@@ -73,7 +73,6 @@ def readFile():
 # One pair, where two cards share one label, and the other three cards have a different label from the pair and each other: A23A4
 # High card, where all cards' labels are distinct: 23456
 def evaluateHand(card):
-    # Replace 'J' with an empty string for counting
     counts = Counter(card.hand)
     numUnique = len(set(card.hand))
     values = sorted(counts.values(), reverse=True)
