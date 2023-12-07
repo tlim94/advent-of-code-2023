@@ -74,15 +74,15 @@ def readFile():
 # High card, where all cards' labels are distinct: 23456
 def evaluateHand(card):
     # Replace 'J' with an empty string for counting
-    counts = Counter(card.hand.replace('J', ''))
-    numUnique = len(set(card.hand.replace('J', '')))
+    counts = Counter(card.hand)
+    numUnique = len(set(card.hand))
     values = sorted(counts.values(), reverse=True)
 
     mostCommonCount = values[0]
     secondCommonCount = values[1] if len(values) > 1 else 0
 
-    if mostCommonCount == 4 and 'J' in card.hand:
-        return 6  # Five of a kind with 'J' as wild card
+    if mostCommonCount == 4:
+        return 6  # Five of a kind
     elif mostCommonCount == 4:
         return 5  # Four of a kind
     elif mostCommonCount == 3 and secondCommonCount == 2:
